@@ -82,7 +82,7 @@ export class BasicCommandHandler {
               {
                 text: "Buy Gift",
                 web_app: {
-                  url: `https://t.me/${env.TG_BOT_NAME}/app`,
+                  url: env.WEB_URL,
                 },
               },
             ],

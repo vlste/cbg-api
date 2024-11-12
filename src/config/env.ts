@@ -7,6 +7,7 @@ const envSchema = z.object({
   PORT: z.coerce.number().default(3030),
   TG_BOT_TOKEN: z.string(),
   TG_BOT_NAME: z.string(),
+  WEB_URL: z.string(),
   NODE_ENV: z
     .enum(["development", "production", "test"])
     .default("development"),
