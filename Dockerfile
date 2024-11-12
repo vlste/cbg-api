@@ -13,6 +13,7 @@ COPY package*.json ./
 RUN npm ci --production
 COPY --from=builder /app/dist ./dist
 COPY .env.production .env
+COPY static ./static
 
 # RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 # USER appuser
