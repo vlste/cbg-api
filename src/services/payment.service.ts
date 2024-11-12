@@ -16,6 +16,18 @@ export class PaymentService {
 
     try {
       const purchasedGift = await session.withTransaction(async () => {
+        const existingInvoice = await InvoiceModel.findOne(
+          {
+            invoiceId: invoice.invoice_id,
+          },
+          null,
+          { session }
+        );
+
+        if (existingInvoice?.status === InvoiceStatus.PAID) {
+          throw new Error("Invoice already paid");
+        }
+
         await InvoiceModel.findOneAndUpdate(
           { invoiceId: invoice.invoice_id },
           {
