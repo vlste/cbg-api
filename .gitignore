@@ -4,3 +4,6 @@ dist
 .env.*
 mongodb.key
 cache
+
+deploy.sh
+docker-compose.prod.yml

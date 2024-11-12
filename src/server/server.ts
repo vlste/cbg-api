@@ -21,8 +21,8 @@ export class Server {
   }
 
   public start() {
-    console.log("Server: starting");
-    this.fastifyApp.listen({ port: env.PORT }).catch((err) => {
+    console.log(`Server: starting (${env.PORT})`);
+    this.fastifyApp.listen({ port: env.PORT, host: "0.0.0.0" }).catch((err) => {
       console.error(err);
       process.exit(1);
     });
